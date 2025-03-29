@@ -6,7 +6,7 @@ import Link from "next/link";
 import DisplayTechIcons from "@/components/DisplayTechIcons";
 
 const InterviewCard = ({
-  interviewId,
+  id,
   userId,
   role,
   type,
@@ -16,7 +16,7 @@ const InterviewCard = ({
   const feedback = null as Feedback | null;
   const normalizedType = /mix/gi.test(type) ? "Mixed" : type;
   const formattedDate = dayjs(
-    feedback?.createdAt || createdAt || Date.now(),
+    feedback?.createdAt || createdAt || Date.now()
   ).format("MMM D, YYYY");
   return (
     <div className={"card-border w-[360px] max-sm:w-full min-h-96"}>
@@ -61,11 +61,7 @@ const InterviewCard = ({
           <DisplayTechIcons techStack={techstack} />
           <Button className={"btn-primary"}>
             <Link
-              href={
-                feedback
-                  ? `/interview/${interviewId}/feedback`
-                  : `/interview/${interviewId}`
-              }
+              href={feedback ? `/interview/${id}/feedback` : `/interview/${id}`}
             >
               {feedback ? "Check Feedback" : "View Interview"}
             </Link>
