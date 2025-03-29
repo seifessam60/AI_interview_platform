@@ -63,7 +63,7 @@ interface RouteParams {
 
 interface GetFeedbackByInterviewIdParams {
   interviewId: string;
-  userId: string;
+  userId: string | undefined;
 }
 
 interface GetLatestInterviewsParams {
